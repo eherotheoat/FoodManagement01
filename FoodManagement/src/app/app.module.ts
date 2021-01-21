@@ -7,16 +7,25 @@ import { OrderComponent } from './menu/order/order.component';
 import { MenuBarComponent } from './menu-bar/menu-bar.component';
 import { ChangeTableComponent } from './menu/change-table/change-table.component';
 
+import { AppRoutingModule, routingComponents } from './app.routing.module';
+
+import { FormsModule } from '@angular/forms';
+import { AddTableComponent } from './menu/add-table/add-table.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     OrderComponent,
     MenuBarComponent,
-    ChangeTableComponent
+    ChangeTableComponent,
+    routingComponents,
+    AddTableComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
