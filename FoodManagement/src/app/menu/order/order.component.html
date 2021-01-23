@@ -80,9 +80,9 @@
 
                 <br>
                 <div class="d-grid gap-2">
+                    <button class="btn btn-warning detail-menu" type="button" (click)=clearValue()>เคลียร์</button>
                     <button class="btn btn-success detail-menu" type="button"
                         (click)=addOrder(amount,detail,addEgg,template)>เพิ่ม</button>
-                    <button class="btn btn-danger detail-menu" type="button">ยกเลิก</button>
                 </div>
             </div>
         </div>
@@ -98,6 +98,7 @@
         </div>
         <div class="card-body">
             <h5 class="card-title detail-menu">เพิ่มลงใน Order สำเร็จ</h5>
+            <p class="card-text font-style">ลูกค้าสามารถเลือกเมนูเพิ่มเติมต่อได้ได้</p>
         </div>
     </div>
 </ng-template>
