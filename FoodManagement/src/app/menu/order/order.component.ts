@@ -1,10 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,TemplateRef } from '@angular/core';
+import { BsModalService , BsModalRef } from 'ngx-bootstrap/modal';
 
 import { AngularFirestore } from '@angular/fire/firestore';
 import 'firebase/firestore' ;
 
+
 import { CrudService } from '../../service/crud.service';
+
+//interface
 import { menu } from '../../interface/Menu';
+import { order } from '../../interface/Order';
 
 @Component({
   selector: 'app-order',
@@ -13,33 +18,54 @@ import { menu } from '../../interface/Menu';
 })
 export class OrderComponent implements OnInit {
 
-  public menu: menu[] ;
+  public menus: menu[] ;
+  public selectMenu: menu[];
+  public orders:order[];
 
+  modalRef: BsModalRef;
+
+  public amount : string;
+  public detail : string;
+  public addEgg : boolean;
+  
   constructor(
     private crudService:CrudService,
-    private Firesstore: AngularFirestore) 
+    private Firesstore: AngularFirestore,
+    private modalService: BsModalService,
+    ) 
   {
-    this.started();
+
   }
 
   ngOnInit() {
-
+    this.started();
   }
 
   async started(){
-    var menu : menu[];
+    var menus : menu[];
     await this.crudService.getMenu().then(value => {
-      menu = value as menu[];
+      menus = value as menu[];
     });
 
-    this.menu = menu;
+    this.menus = menus;
 
-    console.log(this.menu)
+
   }
 
+  addOrder(amount, detail ,addEgg,template){
+    this.openPopup(template)
+    console.log(this.amount, detail ,addEgg)
+    this.clearValue()
+  }
 
-}
+  openPopup(template: TemplateRef<any>){
+    this.modalRef = this.modalService.show(template);
+  }
 
-class Menu{
+  clearValue(){
+    this.amount = '';
+    this.detail = '';
+    this.addEgg = false;
+  }
 
 }

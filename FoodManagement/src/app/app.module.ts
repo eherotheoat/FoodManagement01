@@ -20,6 +20,7 @@ import { CrudService } from './service/crud.service';
 
 import { FormsModule } from '@angular/forms';
 import { AddTableComponent } from './menu/add-table/add-table.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [
@@ -39,8 +40,8 @@ import { AddTableComponent } from './menu/add-table/add-table.component';
     AngularFirestoreModule,
     AngularFireStorageModule,
     AngularFireAuthModule,
-    AngularFireDatabaseModule
-
+    AngularFireDatabaseModule,
+    ModalModule.forRoot()
   ],
   providers: [CrudService],
   bootstrap: [AppComponent]
