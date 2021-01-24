@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes , RouterModule } from '@angular/router' ;
 
+
 //ลูกค้า
 import { HomeComponent } from './menu/home/home.component' ;
 import { OrderComponent } from './menu/order/order.component'
