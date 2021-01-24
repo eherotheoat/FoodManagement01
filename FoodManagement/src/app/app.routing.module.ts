@@ -8,20 +8,15 @@ import { OrderComponent } from './menu/order/order.component'
 import { ChangeTableComponent } from './menu/change-table/change-table.component'
 import { AddTableComponent } from './menu/add-table/add-table.component'
 
-//พนักงาน
-import { EmployeesComponent } from './shop/employees/employees.component';
-import { LoginComponent } from './shop/login/login.component';
+
 
 const routes: Routes = [
-    {path: 'home' , component:AppComponent},
+    {path: '' , component:AppComponent},
     //ลูกค้า
     {path: 'Home' , component: HomeComponent},
     {path: 'Order', component: OrderComponent},
     {path: 'ChangTable', component: ChangeTableComponent},
     {path: 'AddTable' , component: AddTableComponent},
-    //พนักงาน
-    {path: 'Employees' , component: EmployeesComponent},
-    {path: 'Login' , component: LoginComponent},
 ] ;
 
 @NgModule({
@@ -36,7 +31,4 @@ export const routingComponents = [
     OrderComponent ,
     ChangeTableComponent,
     AddTableComponent,
-    //พนักงาน
-    EmployeesComponent ,
-    LoginComponent ,
 ]
