@@ -10,7 +10,7 @@ import { AddTableComponent } from './menu/add-table/add-table.component'
 
 //พนักงาน
 import { EmployeesComponent } from './shop/employees/employees.component';
-
+import { LoginComponent } from './shop/login/login.component';
 
 const routes: Routes = [
     {path: 'home' , component:AppComponent},
@@ -21,6 +21,7 @@ const routes: Routes = [
     {path: 'AddTable' , component: AddTableComponent},
     //พนักงาน
     {path: 'Employees' , component: EmployeesComponent},
+    {path: 'Login' , component: LoginComponent},
 ] ;
 
 @NgModule({
@@ -36,5 +37,6 @@ export const routingComponents = [
     ChangeTableComponent,
     AddTableComponent,
     //พนักงาน
-    EmployeesComponent
+    EmployeesComponent ,
+    LoginComponent ,
 ]
