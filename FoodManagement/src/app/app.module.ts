@@ -21,6 +21,7 @@ import { CrudService } from './service/crud.service';
 import { FormsModule } from '@angular/forms';
 import { AddTableComponent } from './menu/add-table/add-table.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { LoginComponent } from './shop/login/login.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     MenuBarComponent,
     ChangeTableComponent,
     routingComponents,
-    AddTableComponent
+    AddTableComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

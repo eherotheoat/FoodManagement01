@@ -1,5 +1,5 @@
 export interface order {
-    IdOrder : string;
+    IdOrder : number;
     IdTable : number;
     StatusBill: boolean;
     StatusServed: boolean;
@@ -7,4 +7,6 @@ export interface order {
     Amount : number;
     Detail: string;
     AddEgg: boolean;
+    NameMenu: string;
+    Price: number;
 }

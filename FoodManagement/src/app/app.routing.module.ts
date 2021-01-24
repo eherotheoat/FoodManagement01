@@ -13,7 +13,7 @@ import { EmployeesComponent } from './shop/employees/employees.component';
 
 
 const routes: Routes = [
-    {path: '' , component:AppComponent},
+    {path: 'home' , component:AppComponent},
     //ลูกค้า
     {path: 'Home' , component: HomeComponent},
     {path: 'Order', component: OrderComponent},
@@ -29,6 +29,7 @@ const routes: Routes = [
 })
 export class AppRoutingModule{ }
 export const routingComponents = [
+    AppComponent,
     //ลูกค้า
     HomeComponent , 
     OrderComponent ,

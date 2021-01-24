@@ -1,8 +1,8 @@
-import { Component, OnInit ,TemplateRef } from '@angular/core';
-import { BsModalService , BsModalRef } from 'ngx-bootstrap/modal';
+import { Component, OnInit, TemplateRef } from '@angular/core';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 import { AngularFirestore } from '@angular/fire/firestore';
-import 'firebase/firestore' ;
+import 'firebase/firestore';
 
 
 import { CrudService } from '../../service/crud.service';
@@ -18,23 +18,22 @@ import { order } from '../../interface/Order';
 })
 export class OrderComponent implements OnInit {
 
-  public menus: menu[] ;
-  public selectMenu: menu[];
+  public menus: menu[];
   public orders:order[];
+
   public numberTable: number = 1;
 
   modalRef: BsModalRef;
 
-  public amount : string;
-  public detail : string;
-  public addEgg : boolean;
-  
+  public amount: string;
+  public detail: string;
+  public addEgg: boolean;
+
   constructor(
-    private crudService:CrudService,
+    private crudService: CrudService,
     private Firesstore: AngularFirestore,
     private modalService: BsModalService,
-    ) 
-  {
+  ) {
 
   }
 
@@ -42,33 +41,64 @@ export class OrderComponent implements OnInit {
     this.started();
   }
 
-  async started(){
-    var menus : menu[];
+  async started() {
+    var menus: menu[];
+    var orders : order[];
     await this.crudService.getMenu().then(value => {
       menus = value as menu[];
     });
 
+    await this.crudService.getOrder().then(value => {
+      orders = value as order[];
+    });
+
+    this.orders = orders;
     this.menus = menus;
 
-
   }
 
-  addOrder(amount, detail ,addEgg,template){
-    this.openPopup(template)
-    console.log(this.amount, detail ,addEgg)
-    this.clearValue()
+  addOrder(amount, detail, addEgg, template, i) {
+
+    let Order = {};
+    var orders : order[];
+    let idOrder : number ;
+
+    for(let i=0 ; i<this.orders.length ; i++){
+      idOrder = i + 1 ;
+    }
+
+    Order['IdOrder'] = idOrder+1;
+    Order['IdTable'] = this.numberTable;
+    Order['StatusBill'] = false;
+    Order['StatusServed'] = false;
+    Order['IdMenu'] = this.menus[i].IdMenu;
+    Order['Amount'] = amount;
+    Order['Detail'] = detail;
+    Order['AddEgg'] = addEgg;
+    Order['NameMenu'] = this.menus[i].NameMenu;
+    Order['Price'] = this.menus[i].Price;
+
+    this.crudService.addOrder(Order).then(res => {
+      this.clearValue();
+      this.openPopup(template);
+      this.ngOnInit();
+    }).catch(error => {
+      console.log(error);
+    })
+    
+    // console.log(Order)
   }
 
-  openPopup(template: TemplateRef<any>){
+  openPopup(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
   }
 
-  clearValue(){
+  clearValue() {
     this.amount = '';
     this.detail = '';
     this.addEgg = false;
   }
 
 
-  
+
 }

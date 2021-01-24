@@ -21,5 +21,20 @@ export class CrudService {
 
   }
 
+  getOrder(){
+    return new Promise((rexolve, reject) => {
+      this.fireservices.collection('Order').valueChanges().subscribe(value => {
+        rexolve(value);
+      });
+    });
+
+  }
+
+  addOrder(Order){
+
+    return this.fireservices.collection('Order').add(Order);
+
+  }
+
 
 }

@@ -3,7 +3,7 @@
 </div>
 
 <hr>
-<div class="container font-style" *ngFor="let menu of menus">
+<div class="container font-style" *ngFor="let menu of menus ; let i = index">
     <div class="row">
 
         <div class="card mb-3">
@@ -80,9 +80,9 @@
 
                 <br>
                 <div class="d-grid gap-2">
-                    <button class="btn btn-warning detail-menu" type="button" (click)=clearValue()>เคลียร์</button>
                     <button class="btn btn-success detail-menu" type="button"
-                        (click)=addOrder(amount,detail,addEgg,template)>เพิ่ม</button>
+                        (click)=addOrder(amount,detail,addEgg,template,i)>เพิ่ม</button>
+                    <button class="btn btn-warning detail-menu" type="button" (click)=clearValue()>เคลียร์</button>
                 </div>
             </div>
         </div>
