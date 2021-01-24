@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes , RouterModule } from '@angular/router' ;
-
+import { AppComponent } from './app.component';
 
 //ลูกค้า
 import { HomeComponent } from './menu/home/home.component' ;
@@ -13,6 +13,7 @@ import { EmployeesComponent } from './shop/employees/employees.component';
 
 
 const routes: Routes = [
+    {path: '' , component:AppComponent},
     //ลูกค้า
     {path: 'Home' , component: HomeComponent},
     {path: 'Order', component: OrderComponent},
