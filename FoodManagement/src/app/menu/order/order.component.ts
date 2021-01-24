@@ -21,6 +21,7 @@ export class OrderComponent implements OnInit {
   public menus: menu[] ;
   public selectMenu: menu[];
   public orders:order[];
+  public numberTable: number = 1;
 
   modalRef: BsModalRef;
 

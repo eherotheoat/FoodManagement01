@@ -7,14 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuBarComponent implements OnInit {
 
-  public TableNumber:number;
+  public numberTable: number ;
 
   constructor() {
 
    }
 
   ngOnInit() {
-    this.TableNumber = 1
+    this.numberTable = 1
   }
 
 }
