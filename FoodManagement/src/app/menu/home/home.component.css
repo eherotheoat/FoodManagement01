@@ -1,16 +1,26 @@
-.menu-center{
-    width: 200px;
-    height: 200px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-top: -100px;
-    margin-left: -100px;
+.left-bottom{
+    position:absolute;
+    bottom:20%;
+    left:10%;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
-
+.center-bottom{
+    position:absolute;
+    bottom:20%;
+    right:25%;
+    left:50%;
+    margin-left:-150px;
+    display: flex;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+.right-bottom{
+    position:absolute;
+    bottom:20%;
+    right:10%;
+    display: flex;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
 .btn-success{
     /* padding: 4px 100px; */
     color: #ffffff;
