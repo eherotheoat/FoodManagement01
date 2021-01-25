@@ -10,6 +10,7 @@ import { CrudService } from '../../service/crud.service';
 //interface
 import { menu } from '../../interface/Menu';
 import { order } from '../../interface/Order';
+import { orderT } from '../../interface/OrderT';
 
 @Component({
   selector: 'app-order',

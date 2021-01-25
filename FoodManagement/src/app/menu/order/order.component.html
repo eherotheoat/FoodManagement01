@@ -1,5 +1,7 @@
 <div class="container font-style">
-    <h1 class="title">เลือกเมนู ได้เลยค่ะ</h1>
+    <h1 class="title">เลือกเมนูเสร็จเเล้วกดที่นี้เลยค่ะ -->
+        <button type="button" class="btn btn-outline-success detail-menu" (click)="sendOrder()">สั่งเมนู</button>
+    </h1>
 </div>
 
 <hr>
@@ -7,7 +9,7 @@
     <div class="row">
 
         <div class="card mb-3">
-            <img src={{menu.img}} class="card-img-top" alt="...">
+            <img src={{menu.img}} class="card-img-top">
             <div class="card-body">
                 <!-- ชื่อเมนู -->
                 <div class="row g-3 align-items-center card-text detail-menu">
@@ -90,6 +92,7 @@
     </div>
     <br>
 </div>
+
 
 <ng-template #template>
     <div class="card font-style">
