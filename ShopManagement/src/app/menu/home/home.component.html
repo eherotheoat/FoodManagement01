@@ -1,0 +1,36 @@
+<div>
+    <div class="d-grid gap-5 " >
+        <img src={{img}} alt="..." style="width:100%"> 
+        <h1 class="pinefood-center font-style  ">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="currentColor"
+                        class="bi bi-tree-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M8.416.223a.5.5 0 0 0-.832 0l-3 4.5A.5.5 0 0 0 5 5.5h.098L3.076 8.735A.5.5 0 0 0 3.5 9.5h.191l-1.638 3.276a.5.5 0 0 0 .447.724H7V16h2v-2.5h4.5a.5.5 0 0 0 .447-.724L12.31 9.5h.191a.5.5 0 0 0 .424-.765L10.902 5.5H11a.5.5 0 0 0 .416-.777l-3-4.5z" />
+                    </svg> 
+              <h1 class="h2 font-style">Pine-Food </h1>
+                
+        </h1>
+
+        <button class="btn btn-outline-light left-bottom " type="button" [routerLink]="['/Order']" routerLinkActive="router-link-active" >
+            <svg width="230px" height="88px" viewBox="0 0 230 87" class="border svp ">
+                <polyline points="230,1 230,86 1,86 1,1 230,1" class="bg-line" />
+                <polyline points="230,1 230,86 1,86 1,1 230,1" class="hl-line" />
+              </svg>      
+            สั่งอาหาร
+        </button>
+        <button class="btn btn-outline-light center-bottom" type="button" [routerLink]="['/ChangTable']" routerLinkActive="router-link-active" >
+            <svg width="258px" height="88px" viewBox="0 0 258 87" class="border svp">
+                <polyline points="258,1 258,87 1,87 1,1 258,1" class="bg-line" />
+                <polyline points="258,1 258,87 1,87 1,1 258,1" class="hl-line" />
+              </svg>      
+            เปลี่ยนโต๊ะ
+        </button>
+        <button class="btn btn-outline-light right-bottom " type="button" [routerLink]="['/AddTable']" routerLinkActive="router-link-active" >
+            <svg width="198px" height="88px" viewBox="0 0 198 87" class="border svp">
+                <polyline points="198,1 198,87 1,87 1,1 198,1" class="bg-line" />
+                <polyline points="198,1 198,87 1,87 1,1 198,1" class="hl-line" />
+              </svg> 
+            เพิ่มโต๊ะ
+        </button>
+    </div>
+</div>
