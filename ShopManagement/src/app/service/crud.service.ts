@@ -36,5 +36,11 @@ export class CrudService {
 
   }
 
+  addOrderW(orderW){
+
+    return this.fireservices.collection('OrderW').add(orderW);
+
+  }
+
 
 }

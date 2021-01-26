@@ -1,1 +1,93 @@
-<p>chef works!</p>
+ิ<br>
+<div  class="container">
+    <div class="d-grid gap-2">
+        <button class="btn btn-outline-success menu" type="button" (click)="charkOrder()">
+            เปิดดู Order
+        </button>
+    </div>
+</div>
+
+<hr>
+<div class="container">
+    <div class="card" *ngFor="let numOrders of numOrder; let i=index">
+        <div class="card-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-10 title font-style">
+                        โต๊ะ {{numOrders}}
+                    </div>
+                    <div class="col-2">
+                        <button type="button" class="btn btn-success menu" (click)="sendServed(numOrders,template)">
+                            ส่งเสริฟ
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- รายละเอียดเมนู โต๊ะ 1 -->
+        <div class="card-body" *ngIf="i == 0">
+            <div *ngFor="let tables1 of table1; let j=index">
+                <h5 class="card-title detail-menu">{{j+1}}. {{tables1.NameMenu}} &nbsp; {{tables1.Amount}} &nbsp; จาน
+                </h5>
+                <p class="card-text detail">เพิ่มเติม&nbsp;: &nbsp;{{tables1.Detail}}</p>
+                <p class="card-text detail">
+                    <label class="form-check-label detail" for="addEgg">ไข่ดาว : {{tables1.AddEgg}}</label>
+                </p>
+                <hr>
+            </div>
+        </div>
+
+        <!-- รายละเอียดเมนู โต๊ะ 2 -->
+        <div class="card-body" *ngIf="i == 1">
+            <div *ngFor="let table2s of table2; let j=index">
+                <h5 class="card-title detail-menu">{{j+1}}. {{table2s.NameMenu}} &nbsp; {{table2s.Amount}} &nbsp; จาน
+                </h5>
+                <p class="card-text detail">เพิ่มเติม&nbsp;: &nbsp;{{table2s.Detail}}</p>
+                <p class="card-text detail">
+                    <label class="form-check-label detail" for="addEgg">ไข่ดาว : {{table2s.AddEgg}}</label>
+                </p>
+                <hr>
+            </div>
+        </div>
+
+        <!-- รายละเอียดเมนู โต๊ะ 3 -->
+        <div class="card-body" *ngIf="i == 2">
+            <div *ngFor="let table3s of table3; let j=index">
+                <h5 class="card-title detail-menu">{{j+1}}. {{table3s.NameMenu}} &nbsp; {{table3s.Amount}} &nbsp; จาน
+                </h5>
+                <p class="card-text detail">เพิ่มเติม&nbsp;: &nbsp;{{table3s.Detail}}</p>
+                <p class="card-text detail">
+                    <label class="form-check-label detail" for="addEgg">ไข่ดาว : {{table3s.AddEgg}}</label>
+                </p>
+                <hr>
+            </div>
+        </div>
+
+        <!-- รายละเอียดเมนู โต๊ะ 4 -->
+        <div class="card-body" *ngIf="i == 3">
+            <div *ngFor="let table4s of table4; let j=index">
+                <h5 class="card-title detail-menu">{{j+1}}. {{table4s.NameMenu}} &nbsp; {{table4s.Amount}} &nbsp; จาน
+                </h5>
+                <p class="card-text detail">เพิ่มเติม&nbsp;: &nbsp;{{table4s.Detail}}</p>
+                <p class="card-text detail">
+                    <label class="form-check-label detail" for="addEgg">ไข่ดาว : {{table4s.AddEgg}}</label>
+                </p>
+                <hr>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<ng-template #template>
+    <div class="card font-style">
+        <div class="card-header bg-success title text-pop">
+            เพิ่มลง Order
+        </div>
+        <div class="card-body">
+            <h5 class="card-title detail-menu">เพิ่มลงใน Order สำเร็จ</h5>
+            <p class="card-text font-style">ลูกค้าสามารถเลือกเมนูเพิ่มเติมต่อได้ได้</p>
+        </div>
+    </div>
+</ng-template>

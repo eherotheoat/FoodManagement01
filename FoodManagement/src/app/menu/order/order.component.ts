@@ -22,6 +22,8 @@ export class OrderComponent implements OnInit {
   public menus: menu[];
   public orders:order[];
 
+  public orderTs:order[];
+
   public numberTable: number = 1;
 
   modalRef: BsModalRef;
@@ -62,10 +64,17 @@ export class OrderComponent implements OnInit {
 
     let Order = {};
     var orders : order[];
-    let idOrder : number ;
+    let idOrder : number =1;
+    let P : number ;
 
     for(let i=0 ; i<this.orders.length ; i++){
       idOrder = i + 1 ;
+    }
+
+    if(addEgg==true){
+      P = (this.menus[i].Price+5) * amount;
+    }else{
+      P = this.menus[i].Price * amount;
     }
 
     Order['IdOrder'] = idOrder+1;
@@ -77,7 +86,7 @@ export class OrderComponent implements OnInit {
     Order['Detail'] = detail;
     Order['AddEgg'] = addEgg;
     Order['NameMenu'] = this.menus[i].NameMenu;
-    Order['Price'] = this.menus[i].Price;
+    Order['Price'] = P;
 
     this.crudService.addOrder(Order).then(res => {
       this.clearValue();
@@ -87,7 +96,46 @@ export class OrderComponent implements OnInit {
       console.log(error);
     })
     
-    // console.log(Order)
+    console.log(Order)
+  }
+
+  addOrde(amount, detail, addEgg, template, i) {
+
+    let Order = {};
+    var orders : order[];
+    let idOrder : number =1;
+    let P : number ;
+
+    for(let i=0 ; i<this.orders.length ; i++){
+      idOrder = i + 1 ;
+    }
+
+    if(addEgg==true){
+      P = (this.menus[i].Price+5) * amount;
+    }else{
+      P = this.menus[i].Price * amount;
+    }
+
+    Order['IdOrder'] = idOrder+1;
+    Order['IdTable'] = this.numberTable;
+    Order['StatusBill'] = false;
+    Order['StatusServed'] = false;
+    Order['IdMenu'] = this.menus[i].IdMenu;
+    Order['Amount'] = amount;
+    Order['Detail'] = detail;
+    Order['AddEgg'] = addEgg;
+    Order['NameMenu'] = this.menus[i].NameMenu;
+    Order['Price'] = P;
+
+    this.crudService.addOrder(Order).then(res => {
+      this.clearValue();
+      this.openPopup(template);
+      this.ngOnInit();
+    }).catch(error => {
+      console.log(error);
+    })
+    
+    console.log(Order)
   }
 
   openPopup(template: TemplateRef<any>) {
@@ -98,6 +146,25 @@ export class OrderComponent implements OnInit {
     this.amount = '';
     this.detail = '';
     this.addEgg = false;
+  }
+
+  async sendOrder(){
+    var orders : order[];
+    let OrderQ = {};
+    await this.crudService.getOrder().then(value => {
+      orders = value as order[];
+    });
+
+    for(let i =0 ; i<orders.length ; i++){
+      if(orders[i].IdTable != this.numberTable){
+        orders.splice(i)
+      }
+    }
+
+    this.orderTs = orders;
+
+    console.log(this.orderTs);
+
   }
 
 
