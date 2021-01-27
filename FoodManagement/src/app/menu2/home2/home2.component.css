@@ -1,0 +1,90 @@
+.left-bottom{
+    position:absolute;
+    bottom:30%;
+    left:30%;
+    display: flex;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+.center-bottom{
+    position:absolute;
+    bottom:30%;
+    right:25%;
+    left:65%;
+    margin-left:-150px;
+    display: flex;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+.right-bottom{
+    position:absolute;
+    bottom:30%;
+    right:5%;
+    display: flex;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+.pinefood-center{
+    position:absolute;
+    font-size : 70px;
+    font-weight: bold; 
+    bottom:60%;
+    right:25%;
+    left:60%;
+    margin-left:-150px;
+    display: flex;
+    color: #ffffff;
+}
+
+.btn-outline-light{
+    /* padding: 4px 100px; */
+    font-family: "JasmineUPC";
+    font-size : 50px;
+    font-weight: bold; 
+}
+
+.svp {
+    position: absolute;
+    left: 0;
+    top: 0;
+    fill: none;
+    stroke: #fff;
+    stroke-dasharray: 150 480;
+    stroke-dashoffset: 150;
+    transition: 1s ease-in-out;
+  }
+  
+.btn:hover {
+    transition: 1s ease-in-out;
+    background: #fafafa;
+  }
+  
+.btn:hover .svp {
+    stroke-dashoffset: -480;
+  }
+
+.h2{
+    font-size : 70px;
+    font-weight: bold;
+    color: transparent; 
+    text-align: center; 
+    animation: effect 5s linear infinite;
+}
+
+@keyframes effect {
+0% { 
+                background: #ffffff; 
+                -webkit-background-clip: text; 
+            }
+            
+  35% { 
+                background: rgb(0, 255, 34); 
+                -webkit-background-clip: text; 
+            }
+            70% { 
+                background:#ff0000; 
+                -webkit-background-clip: text; 
+            } 
+
+                     100% { 
+                        background:#ffffff; 
+                        -webkit-background-clip: text; 
+                     } 
+}

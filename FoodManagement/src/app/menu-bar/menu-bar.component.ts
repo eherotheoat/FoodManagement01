@@ -11,7 +11,7 @@ export class MenuBarComponent implements OnInit {
 
   constructor() {
 
-   }
+  }
 
   ngOnInit() {
     this.numberTable = 1
