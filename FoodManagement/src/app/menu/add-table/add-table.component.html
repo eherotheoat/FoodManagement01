@@ -14,7 +14,7 @@
                 โต๊ะ {{table.IdTable}}
             </h1>
             <!-- T1 -->
-            <div *ngIf="i == 0 && statusTable1 == true">
+            <!-- <div *ngIf="i == 0 && statusTable1 == true">
                 <button  type="button" class="btn btn-outline-success" (click)="addTable(i,template)">
                     +
                 </button><br>
@@ -26,6 +26,13 @@
                     +
                 </button> <br>
                 <label for="" class="statusT-N">ไม่ว่าง</label><br>
+                <label for=""></label>
+            </div> -->
+            <div *ngIf="i == 0">
+                <button type="button" class="btn btn-success disabled">
+                    +
+                </button> <br>
+                <label for="" class="poin">โต๊ะที่ท่านอยู่</label><br>
                 <label for=""></label>
             </div>
             <!-- T2 -->

@@ -23,7 +23,7 @@ export class ChangeTableComponent implements OnInit {
 
   public tables: table[];
   public orders: order[];
-  public change : number ;
+  public change: number;
   public statusTable1: boolean;
   public statusTable2: boolean;
   public statusTable3: boolean;
@@ -33,6 +33,13 @@ export class ChangeTableComponent implements OnInit {
   public table2: order[];
   public table3: order[];
   public table4: order[];
+
+  public chackTable1: boolean = true;
+  public chackTable2: boolean = false;
+  public chackTable3: boolean = false;
+  public chackTable4: boolean = false;
+
+  public numberTable: number = 1;
 
   modalRef: BsModalRef;
 
@@ -48,7 +55,9 @@ export class ChangeTableComponent implements OnInit {
   }
 
   ngOnInit() {
+
     this.started();
+
   }
 
   async started() {
@@ -64,7 +73,6 @@ export class ChangeTableComponent implements OnInit {
 
     this.orders = orders;
     this.tables = tables;
-    console.log(this.tables)
 
     for (let i = 0; i < this.tables.length; i++) {
       if (this.tables[i].IdTable == 1) {
@@ -80,6 +88,25 @@ export class ChangeTableComponent implements OnInit {
         this.statusTable4 = this.tables[i].StatusTable;
       }
     }
+
+    for (let i = 0; i < this.orders.length; i++) {
+      if (this.orders[i].IdTable == 1) {
+        this.chackTable1 = true;
+        console.log("เข้า T1");
+      }
+      if (this.orders[i].IdTable == 2) {
+        this.chackTable2 = true;
+        console.log("เข้า T2");
+      }
+      if (this.orders[i].IdTable == 3) {
+        this.chackTable3 = true;
+        console.log("เข้า T3");
+      }
+      if (this.orders[i].IdTable == 4) {
+        this.chackTable4 = true;
+        console.log("เข้า T4");
+      }
+    }
     this.T1();
     this.T2();
     this.T3();
@@ -87,40 +114,120 @@ export class ChangeTableComponent implements OnInit {
 
   }
 
+
   chang_table(numTable, template) {
-    console.log("numTable", numTable);
+    numTable = numTable + 1;
+    // console.log(numTable);
+    if (numTable == 1) {
+      for (let i = 0; i < this.table1.length; i++) {
+        var order = {};
+        order['AddEgg'] = this.table1[i].AddEgg;
+        order['Amount'] = this.table1[i].Amount;
+        order['Detail'] = this.table1[i].Detail;
+        order['IdMenu'] = this.table1[i].IdMenu;
+        order['IdOrder'] = this.table1[i].IdOrder;
+        order['IdTable'] = this.numberTable;
+        order['NameMenu'] = this.table1[i].NameMenu;
+        order['Price'] = this.table1[i].Price;
+        order['StatusBill'] = this.table1[i].StatusBill;
+        order['StatusServed'] = this.table1[i].StatusServed;
 
-    for (let i = 0; i < this.table1.length; i++) {
-      var order = {};
-      order['AddEgg'] = this.table1[i].AddEgg;
-      order['Amount'] = this.table1[i].Amount;
-      order['Detail'] = this.table1[i].Detail;
-      order['IdMenu'] = this.table1[i].IdMenu;
-      order['IdOrder'] = this.table1[i].IdOrder;
-      order['IdTable'] = numTable + 1;
-      order['NameMenu'] = this.table1[i].NameMenu;
-      order['Price'] = this.table1[i].Price;
-      order['StatusBill'] = this.table1[i].StatusBill;
-      order['StatusServed'] = this.table1[i].StatusServed;
+        this.crudService.addOrder(order, this.table1[i].IdOrder).then(res => {
 
-      this.crudService.addOrder(order, this.table1[i].IdOrder).then(res => {
+        }).catch(error => {
+          console.log(error);
+        })
 
-      }).catch(error => {
-        console.log(error);
-      })
-
+      }
     }
+
+    if (numTable == 2) {
+      // console.log("เปลี่ยนจาก T2")
+      for (let i = 0; i < this.table2.length; i++) {
+        var order = {};
+        order['AddEgg'] = this.table2[i].AddEgg;
+        order['Amount'] = this.table2[i].Amount;
+        order['Detail'] = this.table2[i].Detail;
+        order['IdMenu'] = this.table2[i].IdMenu;
+        order['IdOrder'] = this.table2[i].IdOrder;
+        order['IdTable'] = this.numberTable;
+        order['NameMenu'] = this.table2[i].NameMenu;
+        order['Price'] = this.table2[i].Price;
+        order['StatusBill'] = this.table2[i].StatusBill;
+        order['StatusServed'] = this.table2[i].StatusServed;
+
+        this.crudService.addOrder(order, this.table2[i].IdOrder).then(res => {
+          // console.log("แก้ DB")
+        }).catch(error => {
+          console.log(error);
+        })
+
+      }
+    }
+
+    if (numTable == 3) {
+      for (let i = 0; i < this.table3.length; i++) {
+        var order = {};
+        order['AddEgg'] = this.table3[i].AddEgg;
+        order['Amount'] = this.table3[i].Amount;
+        order['Detail'] = this.table3[i].Detail;
+        order['IdMenu'] = this.table3[i].IdMenu;
+        order['IdOrder'] = this.table3[i].IdOrder;
+        order['IdTable'] = this.numberTable;
+        order['NameMenu'] = this.table3[i].NameMenu;
+        order['Price'] = this.table3[i].Price;
+        order['StatusBill'] = this.table3[i].StatusBill;
+        order['StatusServed'] = this.table3[i].StatusServed;
+
+        this.crudService.addOrder(order, this.table3[i].IdOrder).then(res => {
+
+        }).catch(error => {
+          console.log(error);
+        })
+
+      }
+    }
+
+    if (numTable == 4) {
+      for (let i = 0; i < this.table4.length; i++) {
+        var order = {};
+        order['AddEgg'] = this.table4[i].AddEgg;
+        order['Amount'] = this.table4[i].Amount;
+        order['Detail'] = this.table4[i].Detail;
+        order['IdMenu'] = this.table4[i].IdMenu;
+        order['IdOrder'] = this.table4[i].IdOrder;
+        order['IdTable'] = this.numberTable;
+        order['NameMenu'] = this.table4[i].NameMenu;
+        order['Price'] = this.table4[i].Price;
+        order['StatusBill'] = this.table4[i].StatusBill;
+        order['StatusServed'] = this.table4[i].StatusServed;
+
+        this.crudService.addOrder(order, this.table4[i].IdOrder).then(res => {
+          // this.ngOnInit();
+        }).catch(error => {
+          console.log(error);
+        })
+
+      }
+    }
+
+    // console.log(numTable)
     this.openPopup(template);
     this.addTable(numTable);
-    this.unlockTable();
+    // this.ngOnInit();
+    // this.unlockTable();
+    this.chackTable1 = false;
+    this.chackTable2 = false;
+    this.chackTable3 = false;
+    this.chackTable4 = false;
 
   }
 
   addTable(numTable) {
-    numTable = numTable;
+    numTable = numTable - 1;
     var table = {};
     table['IdTable'] = this.tables[numTable].IdTable;
-    table['StatusTable'] = false;
+    table['StatusTable'] = true;
     // console.log("number:",numTable)
     // console.log("this.table:",this.tables[numTable])
 
@@ -129,10 +236,18 @@ export class ChangeTableComponent implements OnInit {
       console.log(error);
     })
 
+    table['IdTable'] = this.numberTable;
+    table['StatusTable'] = false;
+    var Table: number = this.numberTable - 1;
+    this.crudService.addTable(table, Table).then(res => {
+    }).catch(error => {
+      console.log(error);
+    })
+
   }
 
-  unlockTable(){
-    let numTable = 1 ;
+  unlockTable() {
+    let numTable = 1;
     var table = {};
     table['IdTable'] = 1;
     table['StatusTable'] = true;
@@ -157,7 +272,7 @@ export class ChangeTableComponent implements OnInit {
     await this.crudService.getOrder().then(value => {
       orders = value as order[];
     });
-    console.log("LO", orders)
+    // console.log("LO", orders)
     var inIF: boolean = false;
     for (let i = 0; i < orders.length; i++) {
       if (orders[i].IdTable != 1) {
@@ -189,10 +304,10 @@ export class ChangeTableComponent implements OnInit {
         i = -1;
       }
     }
-    for(let i =0 ; i<orders.length; i++){
-      if(orders[i].StatusServed == true){
-        orders.splice(i,1)
-        i = -1 ;
+    for (let i = 0; i < orders.length; i++) {
+      if (orders[i].StatusServed == true) {
+        orders.splice(i, 1)
+        i = -1;
       }
     }
     this.table2 = orders;
@@ -213,10 +328,10 @@ export class ChangeTableComponent implements OnInit {
         i = -1;
       }
     }
-    for(let i =0 ; i<orders.length; i++){
-      if(orders[i].StatusServed == true){
-        orders.splice(i,1)
-        i = -1 ;
+    for (let i = 0; i < orders.length; i++) {
+      if (orders[i].StatusServed == true) {
+        orders.splice(i, 1)
+        i = -1;
       }
     }
     this.table3 = orders;
@@ -237,10 +352,10 @@ export class ChangeTableComponent implements OnInit {
         i = -1;
       }
     }
-    for(let i =0 ; i<orders.length; i++){
-      if(orders[i].StatusServed == true){
-        orders.splice(i,1)
-        i = -1 ;
+    for (let i = 0; i < orders.length; i++) {
+      if (orders[i].StatusServed == true) {
+        orders.splice(i, 1)
+        i = -1;
       }
     }
     this.table4 = orders;

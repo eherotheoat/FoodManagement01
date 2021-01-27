@@ -27,6 +27,7 @@ export class AddTableComponent implements OnInit {
   public statusTable3 : boolean ;
   public statusTable4 : boolean ;
 
+
   modalRef: BsModalRef;
 
   constructor(
