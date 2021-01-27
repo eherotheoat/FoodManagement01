@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './menu/home/home.component';
@@ -41,7 +42,8 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     AngularFireStorageModule,
     AngularFireAuthModule,
     AngularFireDatabaseModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    CommonModule
   ],
   providers: [CrudService],
   bootstrap: [AppComponent]

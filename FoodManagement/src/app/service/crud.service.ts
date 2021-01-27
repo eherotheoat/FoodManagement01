@@ -1,38 +1,53 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFireDatabase } from '@angular/fire/database';
 import 'firebase/firestore' ;
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CrudService {
 
-  constructor(private fireservices:AngularFirestore) {
+  constructor(
+    private db:AngularFireDatabase , 
+    // private http:HttpClient
+    ) 
+  {
 
   }
 
 
   getMenu(){
     return new Promise((rexolve, reject) => {
-      this.fireservices.collection('Menu').valueChanges().subscribe(value => {
+      this.db.list('Menu').valueChanges().subscribe(value => {
         rexolve(value);
       });
     });
 
   }
 
+
   getOrder(){
     return new Promise((rexolve, reject) => {
-      this.fireservices.collection('Order').valueChanges().subscribe(value => {
+      this.db.list('Order').valueChanges().subscribe(value => {
         rexolve(value);
       });
     });
 
+  }
+
+  getTable(){
+    return new Promise((rexolve, reject) => {
+      this.db.list('Table').valueChanges().subscribe(value => {
+        rexolve(value);
+      });
+    });
   }
 
   getOrderTable(){
     return new Promise((rexolve, reject) => {
-      this.fireservices.collection('Order').valueChanges().subscribe(value => {
+      this.db.list('Order').valueChanges().subscribe(value => {
         rexolve(value);
       });
     });
@@ -41,15 +56,14 @@ export class CrudService {
 
   addOrderT(orderTs){
 
-    return this.fireservices.collection('OrderT').add(orderTs);
+    // return this.db.list('OrderT').add(orderTs);
 
   }
 
-  addOrder(Order){
-
-    return this.fireservices.collection('Order').add(Order);
+  addOrder(Order,idOrder){
+    console.log("IDorder",idOrder);
+    return this.db.object('Order/'+String(idOrder)).set(Order);
 
   }
-
 
 }

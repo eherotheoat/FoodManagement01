@@ -63,7 +63,10 @@ export class ChefComponent implements OnInit {
   }
 
   charkOrder() {
-    // console.log("T11",this.table1.length)
+    // console.log("T1",this.table1);
+    // console.log("T2",this.table2);
+    // console.log("T3",this.table3);
+    // console.log("T4",this.table4);
     this.numOrder = [];
     this.ngOnInit();
     if (this.table1.length > 0) {
@@ -78,7 +81,6 @@ export class ChefComponent implements OnInit {
     if (this.table4.length > 0) {
       this.numOrder.push(4);
     }
-    // console.log(this.numOrder);
   }
 
   async T1() {
@@ -87,11 +89,11 @@ export class ChefComponent implements OnInit {
     await this.crudService.getOrder().then(value => {
       orders = value as order[];
     });
-    // console.log("LO",orders)
+    console.log("LO",orders)
     var inIF: boolean = false;
     for (let i = 0; i < orders.length; i++) {
       // console.log(i)
-      if (orders[i].IdTable != 1) {
+      if (orders[i].IdTable != 1 ) {
         // console.log("Order ก่อน",orders,"i",i)
         orders.splice(i, 1)
         // console.log("Order หลัง",orders,"i",i)
@@ -99,6 +101,12 @@ export class ChefComponent implements OnInit {
 
       }
 
+    }
+    for(let i =0 ; i<orders.length; i++){
+      if(orders[i].StatusServed == true){
+        orders.splice(i,1)
+        i = -1 ;
+      }
     }
     this.table1 = orders;
 
@@ -116,6 +124,12 @@ export class ChefComponent implements OnInit {
       if (orders[i].IdTable != 2) {
         orders.splice(i, 1)
         i = -1;
+      }
+    }
+    for(let i =0 ; i<orders.length; i++){
+      if(orders[i].StatusServed == true){
+        orders.splice(i,1)
+        i = -1 ;
       }
     }
     this.table2 = orders;
@@ -136,6 +150,12 @@ export class ChefComponent implements OnInit {
         i = -1;
       }
     }
+    for(let i =0 ; i<orders.length; i++){
+      if(orders[i].StatusServed == true){
+        orders.splice(i,1)
+        i = -1 ;
+      }
+    }
     this.table3 = orders;
 
     // console.log("T3",this.table3);
@@ -154,6 +174,12 @@ export class ChefComponent implements OnInit {
         i = -1;
       }
     }
+    for(let i =0 ; i<orders.length; i++){
+      if(orders[i].StatusServed == true){
+        orders.splice(i,1)
+        i = -1 ;
+      }
+    }
     this.table4 = orders;
 
     // console.log("T4",this.table4);
@@ -165,6 +191,7 @@ export class ChefComponent implements OnInit {
   }
 
   sendServed(numtable ,template) {
+    console.log(this.table1.length)
     if (numtable == 1) {
       var orderW = {};
       for (let i = 0; i < this.table1.length; i++) {
@@ -181,16 +208,23 @@ export class ChefComponent implements OnInit {
 
         // console.log(orderW)
 
-        this.crudService.addOrderW(orderW).then(res => {
+        this.crudService.addOrderW(orderW,this.table1[i].IdOrder).then(res => {
           
         }).catch(error => {
           console.log(error);
         })
+
+        this.crudService.Served(orderW,this.table1[i].IdOrder).then(res => {
+        }).catch(error => {
+          console.log(error);
+        })
+
       }
+      console.log("T1",this.table1);
       this.openPopup(template);
       this.table1 = []
-      console.log(this.table1);
       this.charkOrder();
+      console.log(this.table1);
 
     }
   }

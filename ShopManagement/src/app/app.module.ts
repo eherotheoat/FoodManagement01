@@ -20,6 +20,8 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { LoginComponent } from './shop/login/login.component';
 import { ChefComponent } from './shop/chef/chef.component';
 
+import { CommonModule } from '@angular/common';
+
 @NgModule({
   declarations: [
     AppComponent,
