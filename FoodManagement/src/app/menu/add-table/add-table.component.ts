@@ -2,6 +2,7 @@ import { Component, OnInit ,TemplateRef} from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFireDatabase } from '@angular/fire/database';
 import 'firebase/firestore';
 
 
@@ -26,33 +27,20 @@ export class AddTableComponent implements OnInit {
   public statusTable3 : boolean ;
   public statusTable4 : boolean ;
 
+  modalRef: BsModalRef;
+
   constructor(
     private crudService: CrudService,
     private Firesstore: AngularFirestore,
     private modalService: BsModalService,
+    private db:AngularFireDatabase
   ) 
   {
-    this.tables = [
-      {
-        IdTable: 1 ,
-        StatusTable: true
-      },
-      {
-        IdTable: 2 ,
-        StatusTable: true
-      },
-      {
-        IdTable: 3 ,
-        StatusTable: true
-      },
-      {
-        IdTable: 4 ,
-        StatusTable: false
-      },
-    ];
+
   }
 
   ngOnInit() {
+    // this.db.object('Table').set(this.tables);
     this.started();
   }
 
@@ -84,11 +72,27 @@ export class AddTableComponent implements OnInit {
 
   }
 
-  addTable(numTable){
+  addTable(numTable ,template){
+    numTable = numTable;
+    var table = {};
+    table['IdTable'] = this.tables[numTable].IdTable;
+    table['StatusTable'] = false;
+    // console.log("number:",numTable)
+    // console.log("this.table:",this.tables[numTable])
 
-    console.log(this.tables[numTable].IdTable);
-
+    this.crudService.addTable(table,numTable).then(res => {
+      this.ngOnInit();
+      this.openPopup(template);
+    }).catch(error => {
+      console.log(error);
+    })
+    
   }
+
+  openPopup(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template);
+  }
+  
 
 
 

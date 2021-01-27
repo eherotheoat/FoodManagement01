@@ -37,6 +37,12 @@ export class CrudService {
 
   }
 
+  addTable(tables,numTable){
+    console.log("service-Tables:", tables);
+    console.log("service-numTable:", numTable);
+    return this.db.object('Table/'+String(numTable)).set(tables);
+  }
+
   getTable(){
     return new Promise((rexolve, reject) => {
       this.db.list('Table').valueChanges().subscribe(value => {
