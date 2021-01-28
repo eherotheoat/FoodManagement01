@@ -22,6 +22,7 @@ export class HomeComponent implements OnInit {
 
   public OrderedFood: boolean;
   public resetOrder: orderT[];
+  public numberTable : number = 1 ;
 
   constructor(
     private crudService: CrudService,
@@ -60,7 +61,7 @@ export class HomeComponent implements OnInit {
       OF = value as orderT[];
     });
 
-    this.OrderedFood = OF[0].OrderedFood;
+    this.OrderedFood = OF[this.numberTable - 1].OrderedFood;
     console.log(this.OrderedFood)
   }
 

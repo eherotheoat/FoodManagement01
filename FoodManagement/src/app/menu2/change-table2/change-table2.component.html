@@ -1,1 +1,125 @@
 <app-bar2></app-bar2>
+<div class="container font-style">
+    <h1 class="title">
+        เลือกโต๊ะที่ท่านย้ายมา
+    </h1>
+</div>
+
+<hr>
+
+<div class="container text-center">
+    <div class="row row-cols-2">
+        <div class="col" *ngFor="let table of tables; let i=index">
+            <h1 class="detail-menu">
+                โต๊ะ {{table.IdTable}}
+            </h1>
+            <!-- T1 -->
+            <div *ngIf="i == 0 && chackTable1 == true">
+                <button  type="button" class="btn btn-outline-success" (click)="chang_table(i,template)">
+                    +
+                </button><br>
+                <label for="" class="statusT-Y">ย้ายจาก โต๊ะ 1</label><br>
+                <label for=""></label>
+            </div>
+            <div *ngIf="i == 0 && chackTable1 == false">
+                <button type="button" class="btn btn-danger disabled">
+                    +
+                </button> <br>
+                <label for="" class="statusT-N">ไม่มี Order</label><br>
+                <label for=""></label>
+            </div>
+
+            <!-- T2 -->
+            <!-- <div *ngIf="i == 1 && chackTable2 == true">
+                <button type="button" class="btn btn-outline-success" (click)="chang_table(i,template)">
+                    +
+                </button>
+                <br>
+                <label for="" class="statusT-Y">ว่าง</label><br>
+                <label for=""></label>
+            </div>
+            <div *ngIf="i == 1 && chackTable2 == false" >
+                <button type="button" class="btn btn-danger disabled">
+                    +
+                </button> <br>
+                <label for="" class="statusT-N">ไม่มี Order</label><br>
+                <label for=""></label>
+            </div> -->
+            <div *ngIf="i == 1">
+                <button type="button" class="btn btn-success disabled">
+                    +
+                </button> <br>
+                <label for="" class="poin">โต๊ะที่ท่านอยู่</label><br>
+                <label for=""></label>
+            </div>
+            <!-- <div *ngIf="i == 1 && statusTable2 == false" >
+                <button type="button" class="btn btn-danger disabled">
+                    +
+                </button> <br>
+                <label for="" class="statusT-N">ไม่มีว่าง</label><br>
+                <label for=""></label>
+            </div> -->
+
+            <!-- T3 -->
+            <div *ngIf="i == 2 && chackTable3 == true ">
+                <button type="button" class="btn btn-outline-success" (click)="chang_table(i,template)">
+                    +
+                </button>
+                <br>
+                <label for="" class="statusT-Y">ย้ายจาก โต๊ะ 3</label><br>
+                <label for=""></label>
+            </div>
+            <div *ngIf="i == 2 && chackTable3 == false">
+                <button type="button" class="btn btn-danger disabled">
+                    +
+                </button> <br>
+                <label for="" class="statusT-N">ไม่มี Order</label><br>
+                <label for=""></label>
+            </div>
+            <!-- <div *ngIf="i == 2 && statusTable3 == false" >
+                <button type="button" class="btn btn-danger disabled">
+                    +
+                </button> <br>
+                <label for="" class="statusT-N">ไม่มีว่าง</label><br>
+                <label for=""></label>
+            </div> -->
+
+            <!-- T4 -->
+            <div *ngIf="i == 3 && chackTable4 == true ">
+                <button type="button" class="btn btn-outline-success" (click)="chang_table(i,template)">
+                    +
+                </button>
+                <br>
+                <label for="" class="statusT-Y">ย้ายจาก โต๊ะ 4</label><br>
+                <label for=""></label>
+            </div>
+            <div *ngIf="i == 3 && chackTable4 == false">
+                <button type="button" class="btn btn-danger disabled">
+                    +
+                </button> <br>
+                <label for="" class="statusT-N">ไม่มี Order</label><br>
+                <label for=""></label>
+            </div>
+            <!-- <div *ngIf="i == 3 && statusTable4 == false" >
+                <button type="button" class="btn btn-danger disabled">
+                    +
+                </button> <br>
+                <label for="" class="statusT-N">ไม่มีว่าง</label><br>
+                <label for=""></label>
+            </div> -->
+        </div>
+    </div>
+</div>
+<hr>
+
+<ng-template #template>
+    <div class="card font-style menu-center">
+        <div class="card-header bg-success title text-pop">
+            เปลี่ยนโต๊ะ
+        </div>
+        <div class="card-body">
+            <h5 class="card-title detail-menu">รับ Order เรียบร้อย</h5>
+            <p class="card-text font-style">ลูกค้าสามารถนั่งรอเมนูที่โต๊ะได้เลย</p>
+        </div>
+    </div>
+</ng-template>

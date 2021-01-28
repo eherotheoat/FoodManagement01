@@ -135,8 +135,6 @@ export class OrderComponent implements OnInit {
 
   }
 
-
-
   openPopup(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
   }
