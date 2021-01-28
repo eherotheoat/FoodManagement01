@@ -102,6 +102,7 @@ export class Order2Component implements OnInit {
     Order['AddEgg'] = addEgg;
     Order['NameMenu'] = this.menus[i].NameMenu;
     Order['Price'] = P;
+    Order['StatusChackBill'] = false;
 
     this.addTable(this.numberTable);
 

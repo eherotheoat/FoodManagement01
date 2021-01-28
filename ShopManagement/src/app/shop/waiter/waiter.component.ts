@@ -13,11 +13,11 @@ import { order } from '../../interface/Order';
 import { orderT } from '../../interface/OrderT';
 
 @Component({
-  selector: 'app-chef',
-  templateUrl: './chef.component.html',
-  styleUrls: ['./chef.component.css']
+  selector: 'app-waiter',
+  templateUrl: './waiter.component.html',
+  styleUrls: ['./waiter.component.css']
 })
-export class ChefComponent implements OnInit {
+export class WaiterComponent implements OnInit {
 
   public menus: menu[];
   public orders: order[];
@@ -56,7 +56,7 @@ export class ChefComponent implements OnInit {
       orders = value as order[];
     });
     for (let i = 0; i < orders.length; i++) {
-      if (orders[i].StatusServed == true) {
+      if (orders[i].StatusBill == true) {
         orders.splice(i, 1);
         i = -1;
       }
@@ -125,7 +125,7 @@ export class ChefComponent implements OnInit {
   async T1() {
 
     var orders: order[];
-    await this.crudService.getOrder().then(value => {
+    await this.crudService.getOrderW().then(value => {
       orders = value as order[];
     });
     // console.log("LO",orders)
@@ -142,7 +142,7 @@ export class ChefComponent implements OnInit {
 
     }
     for (let i = 0; i < orders.length; i++) {
-      if (orders[i].StatusServed == true) {
+      if (orders[i].StatusBill == true) {
         orders.splice(i, 1)
         i = -1;
       }
@@ -156,7 +156,7 @@ export class ChefComponent implements OnInit {
   async T2() {
 
     var orders: order[];
-    await this.crudService.getOrder().then(value => {
+    await this.crudService.getOrderW().then(value => {
       orders = value as order[];
     });
     for (let i = 0; i < orders.length; i++) {
@@ -166,7 +166,7 @@ export class ChefComponent implements OnInit {
       }
     }
     for (let i = 0; i < orders.length; i++) {
-      if (orders[i].StatusServed == true) {
+      if (orders[i].StatusBill == true) {
         orders.splice(i, 1)
         i = -1;
       }
@@ -180,7 +180,7 @@ export class ChefComponent implements OnInit {
   async T3() {
 
     var orders: order[];
-    await this.crudService.getOrder().then(value => {
+    await this.crudService.getOrderW().then(value => {
       orders = value as order[];
     });
     for (let i = 0; i < orders.length; i++) {
@@ -190,7 +190,7 @@ export class ChefComponent implements OnInit {
       }
     }
     for (let i = 0; i < orders.length; i++) {
-      if (orders[i].StatusServed == true) {
+      if (orders[i].StatusBill == true) {
         orders.splice(i, 1)
         i = -1;
       }
@@ -204,7 +204,7 @@ export class ChefComponent implements OnInit {
   async T4() {
 
     var orders: order[];
-    await this.crudService.getOrder().then(value => {
+    await this.crudService.getOrderW().then(value => {
       orders = value as order[];
     });
     for (let i = 0; i < orders.length; i++) {
@@ -214,7 +214,7 @@ export class ChefComponent implements OnInit {
       }
     }
     for (let i = 0; i < orders.length; i++) {
-      if (orders[i].StatusServed == true) {
+      if (orders[i].StatusBill == true  ) {
         orders.splice(i, 1)
         i = -1;
       }
@@ -234,8 +234,8 @@ export class ChefComponent implements OnInit {
     for (let i = 0; i < order.length; i++) {
       Oder['IdOrder'] = order[i].IdOrder;
       Oder['IdTable'] = order[i].IdTable;
-      Oder['StatusBill'] = order[i].StatusBill;
-      Oder['StatusServed'] = true;
+      Oder['StatusBill'] = true;
+      Oder['StatusServed'] = order[i].StatusServed;
       Oder['IdMenu'] = order[i].IdMenu;
       Oder['Amount'] = order[i].Amount;
       Oder['Detail'] = order[i].Detail;
@@ -261,43 +261,5 @@ export class ChefComponent implements OnInit {
 
   }
 
-  // sendServed(numtable ,template) {
-  //   console.log(this.table1.length)
-  //   if (numtable == 1) {
-  //     var orderW = {};
-  //     for (let i = 0; i < this.table1.length; i++) {
-  //       orderW['IdOrder'] = this.table1[i].IdOrder;
-  //       orderW['IdTable'] = this.table1[i].IdTable;
-  //       orderW['StatusBill'] = this.table1[i].StatusBill;
-  //       orderW['StatusServed'] = true;
-  //       orderW['IdMenu'] = this.table1[i].IdMenu;
-  //       orderW['Amount'] = this.table1[i].Amount;
-  //       orderW['Detail'] = this.table1[i].Detail;
-  //       orderW['AddEgg'] = this.table1[i].AddEgg;
-  //       orderW['NameMenu'] = this.table1[i].NameMenu;
-  //       orderW['Price'] = this.table1[i].Price;
-
-  //       // console.log(orderW)
-
-  //       this.crudService.addOrderW(orderW,this.table1[i].IdOrder).then(res => {
-
-  //       }).catch(error => {
-  //         console.log(error);
-  //       })
-
-  //       this.crudService.Served(orderW,this.table1[i].IdOrder).then(res => {
-  //       }).catch(error => {
-  //         console.log(error);
-  //       })
-
-  //     }
-  //     console.log("T1",this.table1);
-  //     this.openPopup(template);
-  //     this.table1 = []
-  //     this.charkOrder();
-  //     console.log(this.table1);
-
-  //   }
-  // }
 
 }

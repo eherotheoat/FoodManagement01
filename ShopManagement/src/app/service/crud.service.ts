@@ -27,10 +27,28 @@ export class CrudService {
 
   }
 
+  getOrderB(){
+    return new Promise((rexolve, reject) => {
+      this.db.list('OrderB').valueChanges().subscribe(value => {
+        rexolve(value);
+      });
+    });
+
+  }
+
 
   getOrder(){
     return new Promise((rexolve, reject) => {
       this.db.list('Order').valueChanges().subscribe(value => {
+        rexolve(value);
+      });
+    });
+
+  }
+
+  getOrderW(){
+    return new Promise((rexolve, reject) => {
+      this.db.list('OrderW').valueChanges().subscribe(value => {
         rexolve(value);
       });
     });
@@ -54,6 +72,16 @@ export class CrudService {
 
   }
 
+  chackOrder(OrderedFood, numTable) {
+    console.log("OrderFood", OrderedFood);
+    console.log("numTable", numTable);
+    var Order = {};
+    Order['OrderedFood'] = OrderedFood;
+    Order['IdTable'] = numTable;
+    return this.db.object('OrderedFood/' + (String(numTable - 1))).set(Order);
+ 
+  }
+
   Served(orderW,IdOrder){
     console.log("Served", IdOrder-1);
     return this.db.object('Order/'+String(IdOrder)).set(orderW);
@@ -65,8 +93,16 @@ export class CrudService {
 
   addOrder(Order,idOrder){
 
-    return this.db.object('Order/'+(String(idOrder-1))).set(Order);
+    return this.db.object('Order/'+String(idOrder)).set(Order);
 
+  }
+
+  addOrderB(orderW,IdOrder){
+    return this.db.object('OrderB/'+String(IdOrder)).set(orderW);
+  }
+
+  addTable(tables, numTable) {
+    return this.db.object('Table/' + String(numTable)).set(tables);
   }
 
 

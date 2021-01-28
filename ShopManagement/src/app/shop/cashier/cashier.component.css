@@ -1,0 +1,40 @@
+.menu{
+    font-size : 15px;
+    font-weight: bold;
+}
+
+.title{
+    color: rgb(0, 0, 0);
+    font-size : 45px;
+    font-family: "JasmineUPC";
+    font-weight: bold;
+}
+
+.detail-menu{
+    font-size : 28px;
+    font-weight: bold;
+    font-family: "JasmineUPC";
+}
+
+.detail{
+    font-size : 26px;
+    /* font-weight: bold; */
+    font-family: "JasmineUPC";
+}
+
+.red{
+    color: rgb(255, 0, 0);
+}
+
+.menu-center1{
+    width: 400px;
+    height: 200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

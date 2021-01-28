@@ -1,0 +1,185 @@
+<br>
+
+<div class="accordion" id="accordionExample">
+
+    <!-- T1 -->
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button collapsed title" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                โต๊ะ 1
+            </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body detail">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">ชื่อเมนู</th>
+                            <th scope="col">จำนวน (จาน)</th>
+                            <th scope="col">ราคา (บาท)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let table1s of table1; let i=index">
+                            <th scope="row">{{i +1}}</th>
+                            <td>{{table1s.NameMenu}}</td>
+                            <td class="text-center">{{table1s.Amount}}</td>
+                            <td class="text-center">{{table1s.Price}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">รวม</th>
+                            <td></td>
+                            <td class="text-center"></td>
+                            <td class="text-center" *ngIf="ChackOrderT1 == true">{{PriceT1}}</td>
+                            <td class="text-center red" *ngIf="ChackOrderT1 == false">ยังมีเมนูที่ยังไม่ได้รับ</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="d-grid gap-2">
+                    <button type="button" class="btn btn-outline-success detail-menu" (click)="clearBill(table1)">
+                        เช็คบิล
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- T2 -->
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+            <button class="accordion-button collapsed title" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                โต๊ะ 2
+            </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body detail">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">ชื่อเมนู</th>
+                            <th scope="col">จำนวน (จาน)</th>
+                            <th scope="col">ราคา (บาท)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let table2s of table2; let i=index">
+                            <th scope="row">{{i +1}}</th>
+                            <td>{{table2s.NameMenu}}</td>
+                            <td class="text-center">{{table2s.Amount}}</td>
+                            <td class="text-center">{{table2s.Price}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">รวม</th>
+                            <td></td>
+                            <td class="text-center"></td>
+                            <td class="text-center" *ngIf="ChackOrderT2 == true">{{PriceT2}}</td>
+                            <td class="text-center red" *ngIf="ChackOrderT2 == false">ยังมีเมนูที่ยังไม่ได้รับ</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="d-grid gap-2">
+                    <button type="button" class="btn btn-outline-success detail-menu" (click)="clearBill(table2)">
+                        เช็คบิล
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- T3 -->
+    <div class="accordion-item" >
+        <h2 class="accordion-header" id="headingThree">
+            <button class="accordion-button collapsed title" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                โต๊ะ 3
+            </button>
+        </h2>
+        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body detail">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">ชื่อเมนู</th>
+                            <th scope="col">จำนวน (จาน)</th>
+                            <th scope="col">ราคา (บาท)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let table3s of table3; let i=index">
+                            <th scope="row">{{i +1}}</th>
+                            <td>{{table3s.NameMenu}}</td>
+                            <td class="text-center">{{table3s.Amount}}</td>
+                            <td class="text-center">{{table3s.Price}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">รวม</th>
+                            <td></td>
+                            <td class="text-center"></td>
+                            <td class="text-center" *ngIf="ChackOrderT3 == true">{{PriceT3}}</td>
+                            <td class="text-center red" *ngIf="ChackOrderT3 == false">ยังมีเมนูที่ยังไม่ได้รับ</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="d-grid gap-2">
+                    <button type="button" class="btn btn-outline-success detail-menu" (click)="clearBill(table3)">
+                        เช็คบิล
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- T4 -->
+    <div class="accordion-item" >
+        <h2 class="accordion-header" id="headingFour">
+            <button class="accordion-button collapsed title" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                โต๊ะ 4
+            </button>
+        </h2>
+        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body detail">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">ชื่อเมนู</th>
+                            <th scope="col">จำนวน (จาน)</th>
+                            <th scope="col">ราคา (บาท)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let table4s of table4; let i=index">
+                            <th scope="row">{{i +1}}</th>
+                            <td>{{table4s.NameMenu}}</td>
+                            <td class="text-center">{{table4s.Amount}}</td>
+                            <td class="text-center">{{table4s.Price}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">รวม</th>
+                            <td></td>
+                            <td class="text-center"></td>
+                            <td class="text-center" *ngIf="ChackOrderT4 == true">{{PriceT4}}</td>
+                            <td class="text-center red" *ngIf="ChackOrderT4 == false">ยังมีเมนูที่ยังไม่ได้รับ</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="d-grid gap-2">
+                    <button type="button" class="btn btn-outline-success detail-menu" (click)="clearBill(table4)">
+                        เช็คบิล
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
