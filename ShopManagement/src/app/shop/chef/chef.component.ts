@@ -134,7 +134,7 @@ export class ChefComponent implements OnInit {
     }
     this.table2 = orders;
 
-    // console.log("T2",this.table2);
+    console.log("T2",this.table2);
 
   }
 

@@ -9,12 +9,46 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CrudService {
 
+  public OrderedFood1 : boolean ;
+  public OrderedFood2 : boolean ;
+  public OrderedFood3 : boolean ;
+  public OrderedFood4 : boolean ;
+
   constructor(
     private db:AngularFireDatabase , 
     // private http:HttpClient
     ) 
   {
 
+  }
+
+  chackOrder(OrderedFood,numTable){
+    console.log("OrderFood",OrderedFood);
+    console.log("numTable",numTable);
+    if(numTable == 1){
+      var Order = {};
+      this.OrderedFood1 = OrderedFood ;
+      Order['OrderedFood'] = this.OrderedFood1;
+      Order['IdTable'] = numTable ;
+      return this.db.object('OrderedFood/'+ (String(numTable-1))).set(Order);
+    }
+
+    if(numTable == 2){
+      console.log("IF2 numTable",numTable);
+      var Order = {};
+      this.OrderedFood2 = OrderedFood ;
+      Order['OrderedFood'] = this.OrderedFood2;
+      Order['IdTable'] = numTable ;
+      return this.db.object('OrderedFood/'+ (String(numTable-1))).set(Order);
+    }
+  }
+
+  getOrderFood(){
+    return new Promise((rexolve, reject) => {
+      this.db.list('OrderedFood').valueChanges().subscribe(value => {
+        rexolve(value);
+      });
+    });
   }
 
 
@@ -38,8 +72,8 @@ export class CrudService {
   }
 
   addTable(tables,numTable){
-    console.log("service-Tables:", tables);
-    console.log("service-numTable:", numTable);
+    // console.log("service-Tables:", tables);
+    // console.log("service-numTable:", numTable);
     return this.db.object('Table/'+String(numTable)).set(tables);
   }
 

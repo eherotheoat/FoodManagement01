@@ -1,4 +1,4 @@
-import { Component, OnInit ,TemplateRef} from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 import { AngularFirestore } from '@angular/fire/firestore';
@@ -21,11 +21,11 @@ import { table } from '../../interface/Table'
 })
 export class AddTableComponent implements OnInit {
 
-  public tables: table [];
-  public statusTable1 : boolean ;
-  public statusTable2 : boolean ;
-  public statusTable3 : boolean ;
-  public statusTable4 : boolean ;
+  public tables: table[];
+  public statusTable1: boolean;
+  public statusTable2: boolean;
+  public statusTable3: boolean;
+  public statusTable4: boolean;
 
 
   modalRef: BsModalRef;
@@ -34,10 +34,9 @@ export class AddTableComponent implements OnInit {
     private crudService: CrudService,
     private Firesstore: AngularFirestore,
     private modalService: BsModalService,
-    private db:AngularFireDatabase
-  ) 
-  {
-
+    private db: AngularFireDatabase
+  ) {
+    
   }
 
   ngOnInit() {
@@ -55,25 +54,25 @@ export class AddTableComponent implements OnInit {
     this.tables = tables;
     console.log(this.tables)
 
-    for(let i =0 ; i<this.tables.length;i++){
-      if(this.tables[i].IdTable==1){
-        this.statusTable1 = this.tables[i].StatusTable ;
+    for (let i = 0; i < this.tables.length; i++) {
+      if (this.tables[i].IdTable == 1) {
+        this.statusTable1 = this.tables[i].StatusTable;
       }
-      if(this.tables[i].IdTable==2){
-        this.statusTable2 = this.tables[i].StatusTable ;
+      if (this.tables[i].IdTable == 2) {
+        this.statusTable2 = this.tables[i].StatusTable;
       }
-      if(this.tables[i].IdTable==3){
-        this.statusTable3 = this.tables[i].StatusTable ;
+      if (this.tables[i].IdTable == 3) {
+        this.statusTable3 = this.tables[i].StatusTable;
       }
-      if(this.tables[i].IdTable==4){
-        this.statusTable4 = this.tables[i].StatusTable ;
+      if (this.tables[i].IdTable == 4) {
+        this.statusTable4 = this.tables[i].StatusTable;
       }
     }
-    
+
 
   }
 
-  addTable(numTable ,template){
+  addTable(numTable, template) {
     numTable = numTable;
     var table = {};
     table['IdTable'] = this.tables[numTable].IdTable;
@@ -81,19 +80,19 @@ export class AddTableComponent implements OnInit {
     // console.log("number:",numTable)
     // console.log("this.table:",this.tables[numTable])
 
-    this.crudService.addTable(table,numTable).then(res => {
+    this.crudService.addTable(table, numTable).then(res => {
       this.ngOnInit();
       this.openPopup(template);
     }).catch(error => {
       console.log(error);
     })
-    
+
   }
 
   openPopup(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
   }
-  
+
 
 
 

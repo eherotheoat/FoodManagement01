@@ -34,6 +34,8 @@ export class OrderComponent implements OnInit {
 
   modalRef: BsModalRef;
 
+  public OrderedFood : boolean ;
+
   constructor(
     private crudService: CrudService,
     private Firesstore: AngularFirestore,
@@ -112,6 +114,9 @@ export class OrderComponent implements OnInit {
     })
     this.ngOnInit();
     console.log(Order)
+
+    this.OrderedFood = true ;
+    this.crudService.chackOrder(this.OrderedFood, this.numberTable);
   }
 
   addTable(numTable) {

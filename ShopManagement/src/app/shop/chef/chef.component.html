@@ -26,7 +26,7 @@
         </div>
 
         <!-- รายละเอียดเมนู โต๊ะ 1 -->
-        <div class="card-body" *ngIf="i == 0">
+        <div class="card-body" *ngIf="table1">
             <div *ngFor="let tables1 of table1; let j=index">
                 <h5 class="card-title detail-menu">{{j+1}}. {{tables1.NameMenu}} &nbsp; {{tables1.Amount}} &nbsp; จาน
                 </h5>
@@ -39,7 +39,7 @@
         </div>
 
         <!-- รายละเอียดเมนู โต๊ะ 2 -->
-        <div class="card-body" *ngIf="i == 1">
+        <div class="card-body" *ngIf="table2">
             <div *ngFor="let table2s of table2; let j=index">
                 <h5 class="card-title detail-menu">{{j+1}}. {{table2s.NameMenu}} &nbsp; {{table2s.Amount}} &nbsp; จาน
                 </h5>
@@ -52,7 +52,7 @@
         </div>
 
         <!-- รายละเอียดเมนู โต๊ะ 3 -->
-        <div class="card-body" *ngIf="i == 2">
+        <div class="card-body" *ngIf="table3">
             <div *ngFor="let table3s of table3; let j=index">
                 <h5 class="card-title detail-menu">{{j+1}}. {{table3s.NameMenu}} &nbsp; {{table3s.Amount}} &nbsp; จาน
                 </h5>
@@ -65,7 +65,7 @@
         </div>
 
         <!-- รายละเอียดเมนู โต๊ะ 4 -->
-        <div class="card-body" *ngIf="i == 3">
+        <div class="card-body" *ngIf="table3">
             <div *ngFor="let table4s of table4; let j=index">
                 <h5 class="card-title detail-menu">{{j+1}}. {{table4s.NameMenu}} &nbsp; {{table4s.Amount}} &nbsp; จาน
                 </h5>
