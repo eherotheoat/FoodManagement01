@@ -14,22 +14,22 @@ import { orderT } from '../../interface/OrderT';
 import { table } from '../../interface/Table'
 
 @Component({
-  selector: 'app-home2',
-  templateUrl: './home2.component.html',
-  styleUrls: ['./home2.component.css']
+  selector: 'app-home4',
+  templateUrl: './home4.component.html',
+  styleUrls: ['./home4.component.css']
 })
-export class Home2Component implements OnInit {
+export class Home4Component implements OnInit {
 
   public OrderedFood: boolean;
-  public numTable : number = 2 ;
+  public numTable : number = 4 ;
 
   constructor(
     private crudService: CrudService,
     private Firesstore: AngularFirestore,
     private modalService: BsModalService,
     private db: AngularFireDatabase
-  )
-  {
+  ) 
+  { 
 
   }
 
@@ -46,7 +46,8 @@ export class Home2Component implements OnInit {
 
     this.OrderedFood = OF[this.numTable-1].OrderedFood;
     console.log("FoodOrder",this.OrderedFood);
-    // console.log("OF",OF[1].IdTable)
+    console.log("OF",OF[this.numTable-1].OrderedFood)
   }
+
 
 }

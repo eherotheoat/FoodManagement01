@@ -30,6 +30,16 @@ import { FormsModule } from '@angular/forms';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { Bar2Component } from './menu2/bar2/bar2.component';
 import { BarComponent } from './menu/bar/bar.component';
+import { AddTable3Component } from './menu3/add-table3/add-table3.component';
+import { Bar3Component } from './menu3/bar3/bar3.component';
+import { ChangeTable3Component } from './menu3/change-table3/change-table3.component';
+import { Home3Component } from './menu3/home3/home3.component';
+import { Order3Component } from './menu3/order3/order3.component';
+import { Order4Component } from './menu4/order4/order4.component';
+import { Home4Component } from './menu4/home4/home4.component';
+import { ChangeTable4Component } from './menu4/change-table4/change-table4.component';
+import { Bar4Component } from './menu4/bar4/bar4.component';
+import { AddTable4Component } from './menu4/add-table4/add-table4.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +56,16 @@ import { BarComponent } from './menu/bar/bar.component';
     ChangeTable2Component,
     Bar2Component,
     BarComponent,
+    AddTable3Component,
+    Bar3Component,
+    ChangeTable3Component,
+    Home3Component,
+    Order3Component,
+    Order4Component,
+    Home4Component,
+    ChangeTable4Component,
+    Bar4Component,
+    AddTable4Component,
   ],
   imports: [
     BrowserModule,

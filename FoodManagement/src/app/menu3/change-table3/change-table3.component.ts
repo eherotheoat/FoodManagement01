@@ -15,11 +15,11 @@ import { orderT } from '../../interface/OrderT';
 import { table } from '../../interface/Table'
 
 @Component({
-  selector: 'app-change-table2',
-  templateUrl: './change-table2.component.html',
-  styleUrls: ['./change-table2.component.css']
+  selector: 'app-change-table3',
+  templateUrl: './change-table3.component.html',
+  styleUrls: ['./change-table3.component.css']
 })
-export class ChangeTable2Component implements OnInit {
+export class ChangeTable3Component implements OnInit {
 
   public tables: table[];
   public orders: order[];
@@ -42,7 +42,7 @@ export class ChangeTable2Component implements OnInit {
   public OrderedFood: boolean;
 
 
-  public numberTable: number = 2;
+  public numberTable: number = 3;
 
   modalRef: BsModalRef;
 
@@ -51,8 +51,8 @@ export class ChangeTable2Component implements OnInit {
     private Firesstore: AngularFirestore,
     private modalService: BsModalService,
     private db: AngularFireDatabase
-
-  ) {
+  ) 
+  { 
 
   }
 
@@ -114,11 +114,6 @@ export class ChangeTable2Component implements OnInit {
         console.log("เข้า T4");
       }
     }
-
-    console.log("เข้า T1",this.chackTable1);
-    console.log("เข้า T2",this.chackTable2);
-    console.log("เข้า T3",this.chackTable3); 
-    console.log("เข้า T4",this.chackTable4);   
     this.T1();
     this.T2();
     this.T3();

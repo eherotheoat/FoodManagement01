@@ -1,4 +1,4 @@
-<app-bar2></app-bar2>
+<app-bar4></app-bar4>
 <div class="container font-style">
     <h1 class="title">
         เลือกโต๊ะที่ท่านย้ายมา
@@ -22,7 +22,7 @@
                 <label for=""></label>
             </div> -->
             <!-- <div *ngIf="i == 0 && chackTable1 == false"> -->
-            <div *ngIf="i == 1">
+            <div *ngIf="i == 3">
                 <button type="button" class="btn btn-success disabled">
                     +
                 </button> <br>
@@ -31,7 +31,7 @@
             </div>
             <!-- </div> -->
             <!-- T2 -->
-            <div *ngIf="i == 3 && chackTable4 == true">
+            <div *ngIf="i == 1 && chackTable2 == true">
                 <button type="button" class="btn btn-outline-success" (click)="chang_table(i,template)">
                     +
                 </button>
@@ -39,7 +39,7 @@
                 <label for="" class="statusT-Y">ว่าง</label><br>
                 <label for=""></label>
             </div>
-            <div *ngIf="i == 3 && chackTable4 == false" >
+            <div *ngIf="i == 1 && chackTable2 == false" >
                 <button type="button" class="btn btn-danger disabled">
                     +
                 </button> <br>

@@ -1,0 +1,108 @@
+<app-bar3></app-bar3>
+<div class="container font-style">
+    <h1 class="title">
+        เลือกโต๊ะที่ต้องการเพิ่ม
+    </h1>
+</div>
+
+<hr>
+
+<div class="container text-center">
+    <div class="row row-cols-2">
+        <div class="col" *ngFor="let table of tables; let i=index">
+            <h1 class="detail-menu">
+                โต๊ะ {{table.IdTable}}
+            </h1>
+            <!-- T1 -->
+            <div *ngIf="i == 0 && statusTable1 == true">
+                <button  type="button" class="btn btn-outline-success" (click)="addTable(i,template)">
+                    +
+                </button><br>
+                <label for="" class="statusT-Y">ว่าง</label><br>
+                <label for=""></label>
+            </div>
+            <div *ngIf="i == 0 && statusTable1 == false">
+                <button type="button" class="btn btn-danger disabled">
+                    +
+                </button> <br>
+                <label for="" class="statusT-N">ไม่ว่าง</label><br>
+                <label for=""></label>
+            </div>
+            <!-- T2 -->
+            <div *ngIf="i == 1 && statusTable2 == true">
+                <button  type="button" class="btn btn-outline-success" (click)="addTable(i,template)">
+                    +
+                </button>
+                <br>
+                <label for="" class="statusT-Y">ว่าง</label><br>
+                <label for=""></label>
+            </div>
+            <div *ngIf="i == 1 && statusTable2 == false">
+                <button type="button" class="btn btn-danger disabled">
+                    +
+                </button> <br>
+                <label for="" class="statusT-N">ไม่ว่าง</label><br>
+                <label for=""></label>
+            </div>
+            <!-- <div *ngIf="i == 1">
+                <button type="button" class="btn btn-success disabled">
+                    +
+                </button> <br>
+                <label for="" class="poin">โต๊ะที่ท่านอยู่</label><br>
+                <label for=""></label>
+            </div> -->
+            <!-- T3 -->
+            <!-- <div *ngIf="i == 2 && statusTable3 == true">
+                <button  type="button" class="btn btn-outline-success" (click)="addTable(i,template)">
+                    +
+                </button>
+                <br>
+                <label for="" class="statusT-Y">ว่าง</label><br>
+                <label for=""></label>
+            </div>
+            <div *ngIf="i == 2 && statusTable3 == false">
+                <button type="button" class="btn btn-danger disabled">
+                    +
+                </button> <br>
+                <label for="" class="statusT-N">ไม่ว่าง</label><br>
+                <label for=""></label>
+            </div> -->
+            <div *ngIf="i == 2">
+                <button type="button" class="btn btn-success disabled">
+                    +
+                </button> <br>
+                <label for="" class="poin">โต๊ะที่ท่านอยู่</label><br>
+                <label for=""></label>
+            </div>
+            <!-- T4 -->
+            <div *ngIf="i == 3 && statusTable4 == true">
+                <button  type="button" class="btn btn-outline-success" (click)="addTable(i,template)">
+                    +
+                </button>
+                <br>
+                <label for="" class="statusT-Y">ว่าง</label><br>
+                <label for=""></label>
+            </div>
+            <div *ngIf="i == 3 && statusTable4 == false">
+                <button type="button" class="btn btn-danger disabled">
+                    +
+                </button> <br>
+                <label for="" class="statusT-N">ไม่ว่าง</label><br>
+                <label for=""></label>
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
+
+<ng-template #template>
+    <div class="card font-style menu-center">
+        <div class="card-header bg-success title text-pop">
+            เพิ่มโต๊ะ
+        </div>
+        <div class="card-body">
+            <h5 class="card-title detail-menu">เพิ่มโต๊ะสำเร็จ </h5>
+            <p class="card-text font-style">ลูกค้าสามารถปิดหน้านี้ได้เลย</p>
+        </div>
+    </div>
+</ng-template>
