@@ -205,4 +205,35 @@ html {
   #icon {
     width:60%;
   }
+
+  .menu{
+    font-size : 15px;
+    font-weight: bold;
+}
+
+.title{
+    font-size : 35px;
+}
+
+.detail-menu{
+    font-size : 28px;
+    font-weight: bold;
+    font-family: "JasmineUPC";
+}
+
+.detail{
+    font-size : 18px;
+    /* font-weight: bold; */
+    font-family: "JasmineUPC";
+}
+
+.red{
+  font-size : 25px;
+  color: rgb(255, 0, 0);
+}
+
+.error{
+  font-size : 18px;
+  font-family: "JasmineUPC";
+}
   

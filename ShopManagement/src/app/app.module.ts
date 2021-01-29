@@ -23,6 +23,7 @@ import { ChefComponent } from './shop/chef/chef.component';
 import { CommonModule } from '@angular/common';
 import { WaiterComponent } from './shop/waiter/waiter.component';
 import { CashierComponent } from './shop/cashier/cashier.component';
+import { RegisterComponent } from './shop/register/register.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { CashierComponent } from './shop/cashier/cashier.component';
     ChefComponent,
     WaiterComponent,
     CashierComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,

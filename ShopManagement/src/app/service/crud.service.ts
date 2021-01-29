@@ -72,6 +72,15 @@ export class CrudService {
 
   }
 
+  getEmployees(){
+    return new Promise((rexolve, reject) => {
+      this.db.list('Employees').valueChanges().subscribe(value => {
+        rexolve(value);
+      });
+    });
+
+  }
+
   chackOrder(OrderedFood, numTable) {
     console.log("OrderFood", OrderedFood);
     console.log("numTable", numTable);
@@ -95,6 +104,10 @@ export class CrudService {
 
     return this.db.object('Order/'+String(idOrder)).set(Order);
 
+  }
+
+  addEmployee(Employee,IdEmployee){
+    return this.db.object('Employees/'+String(IdEmployee)).set(Employee);
   }
 
   addOrderB(orderW,IdOrder){
