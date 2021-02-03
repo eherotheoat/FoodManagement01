@@ -274,18 +274,22 @@ export class CashierComponent implements OnInit {
     if (table[0].IdTable == 1) {
       console.log("เข้า IF")
       this.ChackOrderT1 = true;
+      this.PriceT1 = null ;
       this.table1 = []
     }
     if (table[0].IdTable == 2) {
       this.ChackOrderT2 = true;
+      this.PriceT2 = null ;
       this.table2 = []
     }
     if (table[0].IdTable == 3) {
       this.ChackOrderT3 = true;
+      this.PriceT3 = null ;
       this.table3 = []
     }
     if (table[0].IdTable == 4) {
       this.ChackOrderT4 = true;
+      this.PriceT4 = null ;
       this.table4 = []
     }
     this.ngOnInit();
