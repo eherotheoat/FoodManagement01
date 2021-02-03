@@ -99,14 +99,14 @@ export class CashierComponent implements OnInit {
       }
     }
 
-    // console.log("PriceT1", this.PriceT1)
-    // console.log("T1", this.ChackOrderT1)
-    // console.log("PriceT2", this.PriceT2)
-    // console.log("T2", this.ChackOrderT2)
-    // console.log("PriceT3", this.PriceT3)
-    // console.log("T3", this.ChackOrderT3)
-    // console.log("PriceT4", this.PriceT4)
-    // console.log("T4", this.ChackOrderT4)
+    console.log("PriceT1", this.PriceT1)
+    console.log("T1", this.ChackOrderT1)
+    console.log("PriceT2", this.PriceT2)
+    console.log("T2", this.ChackOrderT2)
+    console.log("PriceT3", this.PriceT3)
+    console.log("T3", this.ChackOrderT3)
+    console.log("PriceT4", this.PriceT4)
+    console.log("T4", this.ChackOrderT4)
 
   }
 
