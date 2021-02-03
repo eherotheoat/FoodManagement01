@@ -89,18 +89,24 @@ export class CashierComponent implements OnInit {
     if (this.table3.length > 0) {
       this.PriceT3 = 0;
       for (let i = 0; i < this.table3.length; i++) {
-        this.PriceT2 = this.table3[i].Price + this.PriceT2;
+        this.PriceT3 = this.table3[i].Price + this.PriceT3;
       }
     }
     if (this.table4.length > 0) {
       this.PriceT4 = 0;
       for (let i = 0; i < this.table4.length; i++) {
-        this.PriceT2 = this.table4[i].Price + this.PriceT2;
+        this.PriceT4 = this.table4[i].Price + this.PriceT4;
       }
     }
 
-    console.log("PriceT1", this.PriceT1)
-    console.log("PriceT2", this.PriceT2)
+    // console.log("PriceT1", this.PriceT1)
+    // console.log("T1", this.ChackOrderT1)
+    // console.log("PriceT2", this.PriceT2)
+    // console.log("T2", this.ChackOrderT2)
+    // console.log("PriceT3", this.PriceT3)
+    // console.log("T3", this.ChackOrderT3)
+    // console.log("PriceT4", this.PriceT4)
+    // console.log("T4", this.ChackOrderT4)
 
   }
 
@@ -124,11 +130,14 @@ export class CashierComponent implements OnInit {
       }
       for (let i = 0; i < Bills.length; i++) {
         if (Bills[i].StatusBill == false || Bills[i].StatusServed == false || Bills[i].StatusChackBill == true) {
-          Bills.splice(i, 1)
-          this.ChackOrderT1 = false;
+          Bills.splice(i, 1);
           i = -1;
         }
-      }
+        // if(Bills[i].StatusChackBill == false){
+        //   this.ChackOrderT1 = false;
+        //   i = -1;
+        // }
+      } 
 
     }
     this.table1 = Bills;
@@ -152,9 +161,12 @@ export class CashierComponent implements OnInit {
     for (let i = 0; i < Bills.length; i++) {
       if (Bills[i].StatusBill == false || Bills[i].StatusServed == false || Bills[i].StatusChackBill == true) {
         Bills.splice(i, 1);
-        this.ChackOrderT2 = false;
         i = -1;
       }
+      // if(Bills[i].StatusChackBill == false){
+      //   this.ChackOrderT2 = false;
+      //   i = -1;
+      // }
     }
     this.table2 = Bills;
 
@@ -178,9 +190,12 @@ export class CashierComponent implements OnInit {
     for (let i = 0; i < Bills.length; i++) {
       if (Bills[i].StatusBill == false || Bills[i].StatusServed == false || Bills[i].StatusChackBill == true) {
         Bills.splice(i, 1);
-        this.ChackOrderT3 = false;
         i = -1;
       }
+      // if(Bills[i].StatusChackBill == false){
+      //   this.ChackOrderT3 = false;
+      //   i = -1;
+      // }
     }
     this.table3 = Bills;
 
@@ -204,9 +219,12 @@ export class CashierComponent implements OnInit {
     for (let i = 0; i < Bills.length; i++) {
       if (Bills[i].StatusBill == false || Bills[i].StatusServed == false || Bills[i].StatusChackBill == true) {
         Bills.splice(i, 1);
-        this.ChackOrderT4 = false;
         i = -1;
       }
+      // if(Bills[i].StatusChackBill == false){
+      //   this.ChackOrderT4 = false;
+      //   i = -1;
+      // }
     }
     this.table4 = Bills;
 
@@ -244,27 +262,32 @@ export class CashierComponent implements OnInit {
     }
 
     this.crudService.chackOrder(OrderedFood, table[0].IdTable);
-
-    this.crudService.addTable(addTable, table[0].IdTable).then(res => {
+    var Table = table[0].IdTable;
+    this.crudService.addTable(addTable, Table-1).then(res => {
       this.ngOnInit();
     }).catch(error => {
       console.log(error);
     })
 
+    
+    console.log("table[0].IdTable",table[0].IdTable);
     if (table[0].IdTable == 1) {
+      console.log("เข้า IF")
+      this.ChackOrderT1 = true;
       this.table1 = []
     }
     if (table[0].IdTable == 2) {
+      this.ChackOrderT2 = true;
       this.table2 = []
     }
     if (table[0].IdTable == 3) {
+      this.ChackOrderT3 = true;
       this.table3 = []
     }
     if (table[0].IdTable == 4) {
+      this.ChackOrderT4 = true;
       this.table4 = []
     }
-
-    console.log(table[0].IdTable)
     this.ngOnInit();
     // console.log(table);
   }

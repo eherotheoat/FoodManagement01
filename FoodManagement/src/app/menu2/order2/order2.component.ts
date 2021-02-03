@@ -88,7 +88,8 @@ export class Order2Component implements OnInit {
 
     if (addEgg == true) {
       P = (this.menus[i].Price + 5) * amount;
-    } else {
+    } 
+    if(addEgg == false) {
       P = this.menus[i].Price * amount;
     }
     console.log(idOrder)

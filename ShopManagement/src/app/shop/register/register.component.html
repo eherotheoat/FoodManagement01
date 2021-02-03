@@ -10,17 +10,17 @@
     <br>
     <div class="input-group input-group-lg">
         <span class="input-group-text" id="inputGroup-sizing-lg">Password</span>
-        <input type="text" class="form-control" aria-label="Sizing example input"
+        <input type="password" class="form-control" aria-label="Sizing example input"
             aria-describedby="inputGroup-sizing-lg" [(ngModel)]="password" name="password">
     </div>
     <br>
     <div class="input-group input-group-lg">
         <span class="input-group-text" id="inputGroup-sizing-lg">Confirm Password</span>
-        <input type="text" class="form-control" aria-label="Sizing example input"
+        <input type="password" class="form-control" aria-label="Sizing example input"
             aria-describedby="inputGroup-sizing-lg" [(ngModel)]="cpassword" name="cpassword">
     </div>
-    <p *ngIf="errorPass == true" class="red font-style">รหัสผ่านไม่ตรงกัน</p>
-    <p *ngIf="errorInput == true" class="red font-style">กรุณากรอข้อมูลให้ครบ</p>
+    <p *ngIf="errorPass == true"  class="red font-style">รหัสผ่านไม่ตรงกัน</p>
+    <p *ngIf="errorInput == true"  class="red font-style">กรุณากรอข้อมูลให้ครบ</p>
     <br>
     <p class="detail-menu">เลือกตำแหน่งที่ต้องการสมัตร</p>
     <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" [(ngModel)]="position"

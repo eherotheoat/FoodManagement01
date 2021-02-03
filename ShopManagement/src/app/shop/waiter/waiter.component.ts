@@ -242,7 +242,7 @@ export class WaiterComponent implements OnInit {
       Oder['AddEgg'] = order[i].AddEgg;
       Oder['NameMenu'] = order[i].NameMenu;
       Oder['Price'] = order[i].Price;
-      order['StatusChackBill'] = order[i].StatusChackBill;
+      Oder['StatusChackBill'] = order[i].StatusChackBill;
 
       this.crudService.addOrder(Oder, order[i].IdOrder).then(res => {
         this.ngOnInit();

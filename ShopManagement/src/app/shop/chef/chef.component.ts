@@ -72,6 +72,8 @@ export class ChefComponent implements OnInit {
       await this.T4();
     }
 
+    
+
     if (this.TableQ == 1) {
       this.orderMakes = this.table1;
     }
@@ -84,6 +86,8 @@ export class ChefComponent implements OnInit {
     if (this.TableQ == 4) {
       this.orderMakes = this.table4;
     }
+
+    console.log("T",this.orderMakes)
 
   }
 
@@ -229,8 +233,9 @@ export class ChefComponent implements OnInit {
     this.modalRef = this.modalService.show(template);
   }
 
-  sendServed(order: order[], template) {
+  sendServed(order, template) {
     let Oder = {};
+    console.log("order",order)
     for (let i = 0; i < order.length; i++) {
       Oder['IdOrder'] = order[i].IdOrder;
       Oder['IdTable'] = order[i].IdTable;
@@ -242,7 +247,7 @@ export class ChefComponent implements OnInit {
       Oder['AddEgg'] = order[i].AddEgg;
       Oder['NameMenu'] = order[i].NameMenu;
       Oder['Price'] = order[i].Price;
-      order['StatusChackBill'] = order[i].StatusChackBill;
+      Oder['StatusChackBill'] = order[i].StatusChackBill;
 
       this.crudService.addOrder(Oder, order[i].IdOrder).then(res => {
         this.ngOnInit();
