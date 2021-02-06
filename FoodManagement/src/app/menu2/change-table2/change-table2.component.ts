@@ -142,6 +142,7 @@ export class ChangeTable2Component implements OnInit {
         order['Price'] = this.table1[i].Price;
         order['StatusBill'] = this.table1[i].StatusBill;
         order['StatusServed'] = this.table1[i].StatusServed;
+        order['StatusChackBill'] = this.table1[i].StatusChackBill;
 
         this.crudService.addOrder(order, this.table1[i].IdOrder).then(res => {
 
@@ -166,6 +167,7 @@ export class ChangeTable2Component implements OnInit {
         order['Price'] = this.table2[i].Price;
         order['StatusBill'] = this.table2[i].StatusBill;
         order['StatusServed'] = this.table2[i].StatusServed;
+        order['StatusChackBill'] = this.table2[i].StatusChackBill;
 
         this.crudService.addOrder(order, this.table2[i].IdOrder).then(res => {
           // console.log("แก้ DB")
@@ -189,6 +191,7 @@ export class ChangeTable2Component implements OnInit {
         order['Price'] = this.table3[i].Price;
         order['StatusBill'] = this.table3[i].StatusBill;
         order['StatusServed'] = this.table3[i].StatusServed;
+        order['StatusChackBill'] = this.table3[i].StatusChackBill;
 
         this.crudService.addOrder(order, this.table3[i].IdOrder).then(res => {
 
@@ -212,6 +215,7 @@ export class ChangeTable2Component implements OnInit {
         order['Price'] = this.table4[i].Price;
         order['StatusBill'] = this.table4[i].StatusBill;
         order['StatusServed'] = this.table4[i].StatusServed;
+        order['StatusChackBill'] = this.table4[i].StatusChackBill;
 
         this.crudService.addOrder(order, this.table4[i].IdOrder).then(res => {
           // this.ngOnInit();
